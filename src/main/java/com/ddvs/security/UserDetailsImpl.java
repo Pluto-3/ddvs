@@ -28,5 +28,5 @@ public class UserDetailsImpl implements UserDetails {
 
     public String getRole() { return user.getRole().name(); }
 
-
+    public Object getUser() { return user; }
 }
