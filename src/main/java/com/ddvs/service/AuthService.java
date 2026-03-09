@@ -62,6 +62,6 @@ public class AuthService {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         String token = jwtUtil.generateToken(userDetails);
 
-        return new AuthResponse(token, userDetails.getRole(), userDetails.getUser().getName);
+        return new AuthResponse(token, userDetails.getRole(), userDetails.getUser().getName());
     }
 }
