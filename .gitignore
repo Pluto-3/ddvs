@@ -8,6 +8,7 @@ target/
 *.jar
 .env
 application.properties
+application-local.properties
 
 ### STS ###
 .apt_generated
