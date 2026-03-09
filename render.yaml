@@ -3,7 +3,6 @@ services:
     name: ddvs-backend
     env: docker
     plan: free
-    healthCheckPath: /auth/login
     envVars:
       - key: DATABASE_URL
         value: jdbc:postgresql://aws-1-eu-west-1.pooler.supabase.com:5432/postgres
@@ -13,3 +12,5 @@ services:
         value: Plutoski@88
       - key: JWT_SECRET
         value: ddvs-super-secret-jwt-key-2026-production
+      - key: PORT
+        value: 8080
