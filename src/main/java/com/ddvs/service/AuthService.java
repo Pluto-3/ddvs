@@ -1,5 +1,6 @@
 package com.ddvs.service;
 
+import com.ddvs.client.NotificationClient;
 import com.ddvs.dto.request.LoginRequest;
 import com.ddvs.dto.request.RegisterRequest;
 import com.ddvs.dto.response.AuthResponse;
@@ -17,6 +18,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -26,6 +29,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
+    private final NotificationClient notificationClient;
 
     public AuthResponse register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -47,6 +51,13 @@ public class AuthService {
                 .build();
 
         userRepository.save(user);
+
+        notificationClient.send(
+                user.getEmail(),
+                "Welcome to DDVS",
+                "welcome_email",
+                Map.of("name", user.getName())
+        );
 
         UserDetailsImpl userDetails = new UserDetailsImpl(user);
         String token = jwtUtil.generateToken(userDetails);
