@@ -8,6 +8,7 @@ public class DocumentRequest {
     private String title;
     private String documentType;
     private String ownerName;
+    private String ownerEmail;
     private Long issuerId;
     private LocalDate expirationDate;
 }
