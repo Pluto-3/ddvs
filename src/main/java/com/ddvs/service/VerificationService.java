@@ -9,6 +9,8 @@ import com.ddvs.repository.VerificationLogRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.List;
@@ -21,6 +23,7 @@ public class VerificationService {
     private final VerificationLogRepository verificationLogRepository;
     private final DocumentService documentService;
 
+    @Transactional
     public VerificationResponse verify(String verificationCode, HttpServletRequest request) {
         String ipAddress = extractIp(request);
 
