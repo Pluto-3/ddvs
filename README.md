@@ -1,6 +1,6 @@
-# DDVS — Digital Document Verification System (Backend)
+# DDVS Digital Document Verification System (Backend)
 
-A government-grade document verification API built with Spring Boot. Allows authorized institutions to issue verifiable digital documents — certificates, licenses, permits — each with a unique verification code and QR code that anyone can use to confirm authenticity.
+A government-grade document verification API built with Spring Boot. Allows authorized institutions to issue verifiable digital documents certificates, licenses, permits each with a unique verification code and QR code that anyone can use to confirm authenticity.
 
 **Frontend repo:** [ddvs-frontend](https://github.com/yourusername/ddvs-frontend)
 
@@ -10,7 +10,7 @@ A government-grade document verification API built with Spring Boot. Allows auth
 
 - Authorized issuers (e.g. Ministry of Education) issue documents to individuals
 - Each document gets a structured verification code: `TZ-EDU-82911`
-- Anyone can verify a document at `GET /verify/{code}` — no account needed
+- Anyone can verify a document at `GET /verify/{code}` no account needed
 - Every verification attempt is logged with IP address and result
 - Documents can be revoked with a recorded reason and audit trail
 - QR codes link directly to the verification endpoint
@@ -34,10 +34,10 @@ A government-grade document verification API built with Spring Boot. Allows auth
 
 | Role | Permissions |
 |---|---|
-| `ADMIN` | Full access — manage users, issuers, revoke documents, view logs |
+| `ADMIN` | Full access manage users, issuers, revoke documents, view logs |
 | `ISSUER` | Issue and manage documents |
 | `AUDITOR` | View documents and verification logs |
-| `PUBLIC` | Verify documents only — no account required |
+| `PUBLIC` | Verify documents only no account required |
 
 ---
 
